@@ -1,6 +1,6 @@
-require './app'
-require './input'
-require './storage'
+require_relative './app'
+require_relative './input'
+require_relative './storage'
 def main
   # Add some logic for the database
   app = App.new
