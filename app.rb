@@ -1,4 +1,4 @@
-require './model/label'
+require_relative './model/label'
 class App
   attr_reader :genres, :authors, :labels
 
