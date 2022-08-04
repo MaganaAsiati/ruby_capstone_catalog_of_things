@@ -3,10 +3,10 @@ class Item
   attr_reader :id, :archived
   attr_accessor :genre, :author, :label, :publish_date
 
-  def initialize(publish_date:)
+  def initialize(publish_date, archived: false)
     @publish_date = Date.parse(publish_date)
     @id = Random.rand(1..1000)
-    @archived = false
+    @archived = archived
   end
 
   def set_genre(genre:)
@@ -25,11 +25,11 @@ class Item
     @archived = true if can_be_archived?
   end
 
-  private
-
   def can_be_archived?
-    true if (Date.today.to_time.year - @publish_date.to_time.year) > 10
+    Date.today.year - @publish_date.year
   end
+
+  private :can_be_archived?
 end
 
 # s = Item.new(publish_date: '2020-10-14')
