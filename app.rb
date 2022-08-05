@@ -22,7 +22,9 @@ class App
     # @author.add_item(item)
   end
 
-  
+  def create_book(book)
+    @books << book
+  end
 
   # Label part
   def add_label(item)
