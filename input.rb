@@ -23,7 +23,7 @@ class Input
       #  List all music albums
     when 3
       puts 'List all games'
-      app.list_games
+      GameHandler.list_games(app)
     when 4
       #  List all genres
     when 5
