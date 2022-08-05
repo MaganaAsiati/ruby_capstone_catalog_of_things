@@ -10,7 +10,7 @@ describe MusicAlbum do
   end
 
   it 'should return true if on spotify' do
-    expect(@music_album.on_spotify). to be(true)
+    expect(@music_album.on_spotify).to be(true)
   end
 
   it 'should return false' do
