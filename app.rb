@@ -19,6 +19,11 @@ class App
     authors.each { |author| @authors.push(author) }
   end
 
+  
+  def create_game(game)
+    @games << game
+  end
+
   def add_genre(item)
     # @genre.add_item(item)
   end
