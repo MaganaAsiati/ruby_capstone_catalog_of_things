@@ -22,4 +22,11 @@ class Storage
     people_file.close
   end
 
-  
+  # this method is called to load all data
+  def load_data(app)
+    puts 'Loading informations...'
+    load_book(app)
+  end
+
+ 
+end
