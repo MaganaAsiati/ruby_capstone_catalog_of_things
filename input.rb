@@ -1,4 +1,6 @@
 require './app'
+require_relative './handler/book_handler'
+
 class Input
   def self.check_input(input, app)
     case input
@@ -18,6 +20,8 @@ class Input
     case input
     when 1
       #   List all books
+      puts 'List of books'
+      BookHandler.list_books(app)
     when 2
       #  List all music albums
     when 3
@@ -34,10 +38,11 @@ class Input
     end
   end
 
-  def self.add_data(input, _app)
+  def self.add_data(input, app)
     case input
     when 7
       #  Add a book
+      BookHandler.add_book(app)
     when 8
       #  Add a music album
     when 9
