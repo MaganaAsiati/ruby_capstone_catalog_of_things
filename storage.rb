@@ -24,7 +24,6 @@ class Storage
   end
 
   def load_games(app)
-    
     return unless File.file?('games.json')
     return if File.zero?('games.json')
 
