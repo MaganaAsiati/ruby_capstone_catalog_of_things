@@ -1,7 +1,7 @@
 require 'json'
 require './model/game'
 class Storage
-  attr_reader :files
+  attr_accessor :files
 
   def initialize
     @files = %w[books.json games.json albums.json]
@@ -31,7 +31,7 @@ class Storage
     game_file = File.open('games.json', 'r')
     game_list = JSON.parse(game_file.read)
     game_list.each do |game|
-      app.add_game.games(multiplayer: game['multiplayer'], last_played_at: game['last_played_at'],
+      app.create_game(multiplayer: game['multiplayer'], last_played_at: game['last_played_at'],
                       publish_date: game['publish_date'])
     end
     # puts app.games
