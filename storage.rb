@@ -13,5 +13,13 @@ class Storage
     end
   end
 
+  # Implement your own logic to save your data
+  def save_book(app)
+    return unless File.file?('books.json')
+
+    people_file = File.open('books.json', 'w')
+    people_file.write(JSON.generate(app.books))
+    people_file.close
+  end
+
   
-end
