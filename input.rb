@@ -37,7 +37,7 @@ class Input
     end
   end
 
-  def self.add_data(input, apps)
+  def self.add_data(input, app)
     case input
     when 7
       #  Add a book
