@@ -34,3 +34,8 @@ CREATE TABLE MusicAlbum(
   item_id INT,
   FOREIGN KEY (item_id) REFERENCES Item(id)
 );
+
+CREATE TABLE Genre(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(250)
+);
