@@ -24,3 +24,13 @@ CREATE TABLE books (
     item_id INT,
     FOREIGN KEY(item_id) REFERENCES item(id)
 );
+
+CREATE TABLE MusicAlbum(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(250),
+  publish_date DATE,
+  archived BOOLEAN,
+  on_spotify BOOLEAN,
+  item_id INT,
+  FOREIGN KEY (item_id) REFERENCES Item(id)
+);
