@@ -11,6 +11,7 @@ class Item
 
   def set_genre(genre:)
     @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
   end
 
   def set_author(author:)
