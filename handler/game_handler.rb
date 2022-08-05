@@ -15,7 +15,7 @@ class GameHandler
     game = Game.new(multiplayer: multiplayer, last_played_at: last_played_at, publish_date: publish_date)
     app.create_game(game)
     puts 'game created successfully !!!'
-    @storage.save_game(app)
+    @storage.save_games(app)
   end
 
   def self.list_games(app)
