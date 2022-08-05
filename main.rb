@@ -6,6 +6,7 @@ def main
   app = App.new
   app.populate_app
   storage = Storage.new
+  storage.prepare_storage
   storage.load_data(app)
   loop do
     puts 'Welcome to : Catalog of my things ! :)'

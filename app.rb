@@ -31,7 +31,6 @@ class App
     @games << Game.new(multiplayer: multiplayer, last_played_at: last_played_at, publish_date: publish_date)
   end
 
-
   def add_game
     print 'Enter number of players: '
     multiplayer = gets.chomp
@@ -42,9 +41,9 @@ class App
     print 'Enter Date Published format[yyyy-mm-dd]: '
     publish_date = gets.chomp
 
-    # games = [Game.new(multiplayer:, last_played_at:, publish_date:)]
+    games = [Game.new(multiplayer:, last_played_at:, publish_date:)]
 
-    # games.each { |game| @games.push(game) }
+    games.each { |game| @games.push(game) }
   end
 
   # Label part
