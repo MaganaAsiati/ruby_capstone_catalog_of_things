@@ -28,5 +28,14 @@ class Storage
     load_book(app)
   end
 
- 
+  def load_book(app)
+    return unless File.file?('books.json')
+    return if File.zero?('books.json')
+
+    book_file = File.open('books.json', 'r')
+    book_list = JSON.parse(book_file.read)
+    book_list.each { |book| app.create_book(Book.new(cover_state: book['cover_state'], publisher: book['publisher'])) }
+    # puts app.books
+    book_file.close
+  end
 end
