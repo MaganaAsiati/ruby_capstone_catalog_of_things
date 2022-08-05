@@ -1,4 +1,5 @@
 require './app'
+require_relative './handler/game_handler'
 class Input
   def self.check_input(input, app)
     case input
@@ -44,7 +45,7 @@ class Input
       #  Add a music album
     when 9
       puts 'Add Game'
-      apps.add_game
+      GameHandler.add_game(app)
     else
       puts 'invalid input'
     end
