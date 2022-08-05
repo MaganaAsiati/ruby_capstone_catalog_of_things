@@ -11,5 +11,12 @@ describe Label do
     expect(@label).to be_kind_of Label
   end
 
-  
+  it 'should have empty item list' do
+    expect(@label.items.length).to eq(0)
+  end
+
+  it 'Should return item list equal to 1' do
+    @label.add_item(@item)
+    expect(@label.items.length).to eq(1)
+  end
 end
