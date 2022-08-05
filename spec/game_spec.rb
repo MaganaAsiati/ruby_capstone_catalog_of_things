@@ -2,7 +2,7 @@ require_relative '../model/game'
 require 'date'
 
 describe Game do
-  game = Game.new('50', '2022-08-04', '1982-12-01')
+  game = Game.new(multiplayer: '50', last_played_at: '2022-08-04', publish_date: '1982-12-01')
   context '... this class...' do
     it 'should initialize with multiplayer and last_played_date' do
       expect(game.multiplayer).not_to be_nil
