@@ -15,4 +15,10 @@ class BookHandler
     @storage.save_book(app)
   end
 
-  
+  def self.list_books(app)
+    puts 'This is all the books we have : '
+    app.books.each_with_index do |book, index|
+      puts "#{index + 1}. [#{book.class}] - Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+    end
+  end
+end
