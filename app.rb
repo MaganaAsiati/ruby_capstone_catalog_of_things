@@ -15,10 +15,6 @@ class App
     labels = [Label.new(title: 'Drama', color: 'red'), Label.new(title: 'Fantasy', color: 'green')]
     labels.each { |label| @labels.push(label) }
 
-    # games = [Game.new(multiplayer: '30', last_played_at: '2022-01-11', publish_date: '1980-08-08'),
-    #          Game.new(multiplayer: '33', last_played_at: '2022-05-11', publish_date: '1980-08-08')]
-    # games.each { |game| @games.push(game) }
-
     authors = [Author.new(first_name: 'name1', last_name: 'name2'), Author.new(first_name: 'name1', last_name: 'name2')]
     authors.each { |author| @authors.push(author) }
   end
@@ -45,7 +41,9 @@ class App
     print 'Enter Date Published format[yyyy-mm-dd]: '
     publish_date = gets.chomp
 
-    games << Game.new(multiplayer:, last_played_at:, publish_date:)
+    games = [Game.new(multiplayer:, last_played_at:, publish_date:)]
+
+    games.each { |game| @games.push(game) }
   end
 
   # Label part
