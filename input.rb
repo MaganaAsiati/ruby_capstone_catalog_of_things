@@ -45,7 +45,6 @@ class Input
     end
   end
 
-
   def self.add_data(input, apps)
     case input
     when 7

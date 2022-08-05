@@ -6,7 +6,6 @@ require_relative './model/genre'
 class App
   attr_reader :genres, :authors, :labels, :books, :albums
 
-
   def initialize
     @genres = []
     @authors = []
@@ -25,16 +24,15 @@ class App
 
     genres = [Genre.new(name: 'Comedy'), Genre.new(name: 'Thriller')]
     genres.each { |genre| @genres.push(genre) }
-
   end
 
   def add_genre(item)
     @genre.add_item(item)
   end
 
-  # def add_author(item)
-  #   @author.add_item(item)
-  # end
+  def add_author(item)
+    @author.add_item(item)
+  end
 
   def add_game
     print 'Enter number of players: '
@@ -69,6 +67,7 @@ class App
       puts "#{index}. [#{label.class}] - Title: #{label.title}, Color: #{label.color}"
     end
   end
+
   def list_games
     @games.each_with_index do |game, index|
       puts "#{index}. [#{game.class}] - Multiplayer: #{game.multiplayer}, Last Played Date: #{game.last_played_at},
@@ -79,6 +78,9 @@ class App
   def list_authors
     @authors.each_with_index do |author, index|
       puts "#{index}. [#{author.class}] - First Name: #{author.first_name}, Last Name: #{author.last_name}"
+    end
+  end
+
   def list_genres
     @genres.each_with_index do |genre, index|
       puts "#{index}. [#{genre.class}] - Name: #{genre.name}"
