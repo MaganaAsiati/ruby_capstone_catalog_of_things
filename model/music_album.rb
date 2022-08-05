@@ -1,17 +1,23 @@
 require 'date'
 require_relative './item'
-
 class MusicAlbum < Item
   attr_accessor :on_spotify
-  attr_reader :id
 
-  def initialize(on_spotify: false)
-    super(can_be_archived?)
-    @id = Random.rand(1..1000)
+  def initialize(on_spotify:)
+    # super(publish_date: '2020-10-14')
+    super(publish_date: Date.today.to_s)
     @on_spotify = on_spotify
   end
 
+  def to_json(*_args)
+    JSON.dump({
+                on_spotify: @on_spotify
+              })
+  end
+
+  private
+
   def can_be_archived?
-    super && @on_spotify = true
+    true if super && @on_spotify
   end
 end
