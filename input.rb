@@ -1,5 +1,6 @@
 require './app'
 require_relative './handler/book_handler'
+require_relative './handler/music_handler'
 
 class Input
   def self.check_input(input, app)
@@ -24,10 +25,14 @@ class Input
       BookHandler.list_books(app)
     when 2
       #  List all music albums
+      puts 'List of music albums'
+      MusicHandler.list_music_albums(app)
     when 3
       #  List of games
     when 4
       #  List all genres
+      puts 'List of genres'
+      app.list_genres
     when 5
       puts 'List all labels'
       app.list_labels
@@ -45,6 +50,7 @@ class Input
       BookHandler.add_book(app)
     when 8
       #  Add a music album
+      MusicHandler.add_music_album(app)
     when 9
       #  Add a game
     else
