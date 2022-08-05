@@ -16,3 +16,11 @@ CREATE TABLE labels (
     PRIMARY KEY(id)
 );
 
+CREATE TABLE books (
+    id  INT,
+    title VARCHAR(100),
+    publisher VARCHAR(100),
+    cover_state VARCHAR(100),
+    item_id INT,
+    FOREIGN KEY(item_id) REFERENCES item(id)
+);
