@@ -19,9 +19,11 @@ class GameHandler
   end
 
   def self.list_games(app)
-    app.games.each_with_index do |game, index|
-      puts "#{index}. [#{game.class}] - Multiplayer: #{game.multiplayer}, Last Played Date: #{game.last_played_at},
-      Publish Date: #{game.publish_date}"
+    result = app.games
+    puts result
+    result && result.each_with_index do |game, index|
+      puts "#{index}. [#{game.class}] - Multiplayer: #{game[:multiplayer]}, Last Played Date: #{game[:last_played_at]},
+      Publish Date: #{game[:publish_date]}"
     end
   end
 end
