@@ -27,7 +27,7 @@ class Storage
     return unless File.file?('albums.json')
 
     music_file = File.open('albums.json', 'w')
-    music_file = File.write(JSON.generate(app.albums))
+    music_file.write(JSON.generate(app.albums))
     music_file.close
   end
 

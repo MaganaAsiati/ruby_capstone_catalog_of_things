@@ -16,7 +16,7 @@ class MusicHandler
   def self.list_music_albums(app)
     puts 'This is all the albums we have : '
     app.albums.each_with_index do |music_album, index|
-      puts music_album.on_spotify.to_s
+      puts "#{index + 1}. [#{music_album.class}] - On Spotify: #{music_album.on_spotify}"
     end
   end
 end
