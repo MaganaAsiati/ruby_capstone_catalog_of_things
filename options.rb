@@ -1,3 +1,5 @@
+
+def options(app)
 loop do
   puts 'Welcome to : Catalog of my things ! :)'
   puts '1 - List all books'
@@ -12,4 +14,5 @@ loop do
   puts '0 - Exit'
   input = gets.chomp.to_i
   Input.check_input(input, app)
+end
 end

@@ -1,7 +1,7 @@
 require_relative './app'
 require_relative './input'
 require_relative './storage'
-require_relative './options'
+require './options'
 def main
   # Add some logic for the database
   app = App.new
@@ -9,7 +9,7 @@ def main
   storage = Storage.new
   storage.prepare_storage
   storage.load_data(app)
-  options
+  options(app)
   puts 'Thank you for using our service :)'
 end
 
