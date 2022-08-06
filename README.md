@@ -21,8 +21,8 @@
 
 ## Link to the video
 
-Video link
-
+[Video link]
+(https://www.loom.com/share/1b87265f7dd44183886d59b40d21fed3)
 
 ## Getting Started
 
