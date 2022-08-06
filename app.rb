@@ -4,7 +4,7 @@ require_relative './model/author'
 require_relative './model/game'
 require_relative './model/genre'
 class App
-  attr_reader :genres, :authors, :labels, :books, :albums
+  attr_reader :genres, :authors, :labels, :books, :albums, :games
 
   def initialize
     @genres = []
@@ -39,6 +39,10 @@ class App
     @labels.add_item(item)
   end
 
+  def create_game(game)
+    @games << game
+  end
+
   def list_labels
     @labels.each_with_index do |label, index|
       puts "#{index}. [#{label.class}] - Title: #{label.title}, Color: #{label.color}"
@@ -54,6 +58,10 @@ class App
       puts "#{index}. [#{author.class}] - First Name: #{author.first_name}, Last Name: #{author.last_name}"
     end
   end
+ # Genre part
+ def add_genre(item)
+  @genres.add_item(item)
+end
 
   def list_genres
     @genres.each_with_index do |genre, index|
