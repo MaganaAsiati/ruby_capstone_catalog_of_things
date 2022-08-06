@@ -1,4 +1,4 @@
-require './app'
+require_relative './app'
 require_relative './handler/game_handler'
 require_relative './handler/book_handler'
 require_relative './handler/music_handler'
