@@ -33,23 +33,19 @@ class Storage
   end
 
   # Implement your own logic to save your dat
-
-  def save_games(app)
+  def save_game(app)
     return unless File.file?('games.json')
 
-    game_file = File.open('games.json', 'w')
-    game_file.write(JSON.generate(app.games))
-    game_file.close
-    puts 'Loading informations...'
-    load_book(app)
-    load_music_album(app)
+    people_file = File.open('games.json', 'w')
+    people_file.write(JSON.generate(app.games))
+    people_file.close
   end
 
   # this method is called to load all data
   def load_data(app)
     puts 'Loading informations...'
     load_book(app)
-    load_music(app)
+    load_music_album(app)
     load_games(app)
   end
 
@@ -83,9 +79,9 @@ class Storage
 
     game_file = File.open('games.json', 'r')
     game_list = JSON.parse(game_file.read)
-    game_list.each do |game|
-      app.create_game(Game.new(game['multiplayer'], game['last_played_date'], game['publish_date']))
-    end
+    p game_list
+    game_list.each {|game|
+      app.create_game(Game.new(game['multiplayer'], game['last_played_date'], game['publish_date']))}
     game_file.close
   end
 end
