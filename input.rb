@@ -1,4 +1,5 @@
-require './app'
+require_relative './app'
+require_relative './handler/game_handler'
 require_relative './handler/book_handler'
 require_relative './handler/music_handler'
 
@@ -28,7 +29,8 @@ class Input
       puts 'List of music albums'
       MusicHandler.list_music_albums(app)
     when 3
-      #  List of games
+      puts 'List all games'
+      GameHandler.list_games(app)
     when 4
       #  List all genres
       puts 'List of genres'
@@ -37,7 +39,8 @@ class Input
       puts 'List all labels'
       app.list_labels
     when 6
-      #  List all authors
+      puts 'List all authors'
+      app.list_authors
     else
       puts 'invalid input'
     end
@@ -52,7 +55,8 @@ class Input
       #  Add a music album
       MusicHandler.add_music_album(app)
     when 9
-      #  Add a game
+      puts 'Add Game'
+      GameHandler.add_game(app)
     else
       puts 'invalid input'
     end

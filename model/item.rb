@@ -16,6 +16,7 @@ class Item
 
   def set_author(author:)
     @author = author
+    author.items.push(self) unless author.items.include?(self)
   end
 
   def set_label(label:)
@@ -33,6 +34,3 @@ class Item
     true if (Date.today.to_time.year - @publish_date.to_time.year) > 10
   end
 end
-
-# s = Item.new(publish_date: '2020-10-14')
-# puts s.publish_date
