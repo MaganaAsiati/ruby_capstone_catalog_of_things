@@ -1,4 +1,5 @@
-require './app'
+require_relative './app'
+require_relative './handler/game_handler'
 require_relative './handler/book_handler'
 require_relative './handler/music_handler'
 
@@ -29,7 +30,7 @@ class Input
       MusicHandler.list_music_albums(app)
     when 3
       puts 'List all games'
-      app.list_games
+      GameHandler.list_games(app)
     when 4
       #  List all genres
       puts 'List of genres'
@@ -45,7 +46,7 @@ class Input
     end
   end
 
-  def self.add_data(input, apps)
+  def self.add_data(input, app)
     case input
     when 7
       #  Add a book
@@ -55,7 +56,7 @@ class Input
       MusicHandler.add_music_album(app)
     when 9
       puts 'Add Game'
-      apps.add_game
+      GameHandler.add_game(app)
     else
       puts 'invalid input'
     end

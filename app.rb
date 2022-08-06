@@ -4,7 +4,7 @@ require_relative './model/author'
 require_relative './model/game'
 require_relative './model/genre'
 class App
-  attr_reader :genres, :authors, :labels, :books, :albums
+  attr_reader :genres, :authors, :labels, :books, :albums, :games
 
   def initialize
     @genres = []
@@ -26,29 +26,6 @@ class App
     genres.each { |genre| @genres.push(genre) }
   end
 
-  def add_genre(item)
-    @genre.add_item(item)
-  end
-
-  def add_author(item)
-    @author.add_item(item)
-  end
-
-  def add_game
-    print 'Enter number of players: '
-    multiplayer = gets.chomp
-
-    print 'Enter Last Played Date format[yyyy-mm-dd]: '
-    last_played_at = gets.chomp
-
-    print 'Enter Date Published format[yyyy-mm-dd]: '
-    publish_date = gets.chomp
-
-    games = [Game.new(multiplayer, last_played_at, publish_date)]
-
-    games.each { |game| @games.push(game) }
-  end
-
   def create_book(book)
     @books << book
   end
@@ -62,23 +39,29 @@ class App
     @labels.add_item(item)
   end
 
+  def create_game(game)
+    @games << game
+  end
+
   def list_labels
     @labels.each_with_index do |label, index|
       puts "#{index}. [#{label.class}] - Title: #{label.title}, Color: #{label.color}"
     end
   end
 
-  def list_games
-    @games.each_with_index do |game, index|
-      puts "#{index}. [#{game.class}] - Multiplayer: #{game.multiplayer}, Last Played Date: #{game.last_played_at},
-      Publish Date: #{game.publish_date}"
-    end
+  def add_author(item)
+    @authors.add_item(item)
   end
 
   def list_authors
     @authors.each_with_index do |author, index|
       puts "#{index}. [#{author.class}] - First Name: #{author.first_name}, Last Name: #{author.last_name}"
     end
+  end
+
+  # Genre part
+  def add_genre(item)
+    @genres.add_item(item)
   end
 
   def list_genres
