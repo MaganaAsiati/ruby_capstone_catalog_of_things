@@ -1,14 +1,18 @@
 require_relative './model/label'
+
 require_relative './model/author'
 require_relative './model/game'
+require_relative './model/genre'
 class App
-  attr_reader :genres, :authors, :labels, :games
+  attr_reader :genres, :authors, :labels, :books, :albums
 
   def initialize
     @genres = []
     @authors = []
     @labels = []
     @games = []
+    @books = []
+    @albums = []
   end
 
   def populate_app
@@ -17,14 +21,17 @@ class App
 
     authors = [Author.new(first_name: 'name1', last_name: 'name2'), Author.new(first_name: 'name1', last_name: 'name2')]
     authors.each { |author| @authors.push(author) }
+
+    genres = [Genre.new(name: 'Comedy'), Genre.new(name: 'Thriller')]
+    genres.each { |genre| @genres.push(genre) }
   end
 
-  def create_game(game)
-    @games << game
+  def create_book(book)
+    @books << book
   end
 
-  def add_genre(item)
-    # @genre.add_item(item)
+  def create_music_album(music_album)
+    @albums << music_album
   end
 
   # Label part
@@ -45,6 +52,12 @@ class App
   def list_authors
     @authors.each_with_index do |author, index|
       puts "#{index}. [#{author.class}] - First Name: #{author.first_name}, Last Name: #{author.last_name}"
+    end
+  end
+
+  def list_genres
+    @genres.each_with_index do |genre, index|
+      puts "#{index}. [#{genre.class}] - Name: #{genre.name}"
     end
   end
 end

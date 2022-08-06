@@ -11,6 +11,7 @@ def options(app)
     puts '8 - Add a music album'
     puts '9 - Add a game'
     puts '0 - Exit'
+    puts 'Enter your option : '
     input = gets.chomp.to_i
     Input.check_input(input, app)
   end

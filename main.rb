@@ -1,9 +1,9 @@
+
 require_relative './app'
 require_relative './input'
 require_relative './storage'
 require './options'
 def main
-  # Add some logic for the database
   app = App.new
   app.populate_app
   storage = Storage.new
