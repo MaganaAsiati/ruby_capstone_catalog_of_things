@@ -8,7 +8,7 @@ describe Genre do
     @genre = Genre.new(name: 'The bane')
   end
   it 'is initialized' do
-    expect(@genre).to be_kind_of Genre
+    @genre.should be_an_instance_of Genre
   end
 
   it 'should have empty item list' do
