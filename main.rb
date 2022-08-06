@@ -1,4 +1,3 @@
-
 require_relative './app'
 require_relative './input'
 require_relative './storage'

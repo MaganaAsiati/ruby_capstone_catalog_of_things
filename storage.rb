@@ -15,8 +15,6 @@ class Storage
     end
   end
 
-  
-
   # Implement your own logic to save your data
   def save_book(app)
     return unless File.file?('books.json')
@@ -34,21 +32,7 @@ class Storage
     music_file.close
   end
 
-  # this method is called to load all data
-  def load_data(app)
-    puts 'Loading informations...'
-    load_book(app)
-    load_music(app)
-    load_games(app)
-  end
-
-  
-    # puts app.games
-    game_file.close
-  end
-
-  # Implement your own logic to save your data
-  def save_book(app); end
+  # Implement your own logic to save your dat
 
   def save_games(app)
     return unless File.file?('games.json')
@@ -61,6 +45,13 @@ class Storage
     load_music_album(app)
   end
 
+  # this method is called to load all data
+  def load_data(app)
+    puts 'Loading informations...'
+    load_book(app)
+    load_music(app)
+    load_games(app)
+  end
 
   def load_book(app)
     return unless File.file?('books.json')
@@ -68,7 +59,9 @@ class Storage
 
     book_file = File.open('books.json', 'r')
     book_list = JSON.parse(book_file.read)
-    book_list.each { |book| app.create_book(Book.new(cover_state: book['cover_state'], publisher: book['publisher'])) }
+    book_list.each do |book|
+      app.create_book(Book.new(cover_state: book['cover_state'], publisher: book['publisher']))
+    end
     # puts app.books
     book_file.close
   end
@@ -91,7 +84,8 @@ class Storage
     game_file = File.open('games.json', 'r')
     game_list = JSON.parse(game_file.read)
     game_list.each do |game|
-      app.create_game(multiplayer: game['multiplayer'], last_played_at: game['last_played_at'],
-                      publish_date: game['publish_date'])
+      app.create_game(Game.new(game['multiplayer'], game['last_played_date'], game['publish_date']))
     end
+    game_file.close
+  end
 end
