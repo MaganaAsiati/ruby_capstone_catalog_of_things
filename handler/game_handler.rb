@@ -7,9 +7,9 @@ class GameHandler
     puts 'Please, create your game : '
     puts 'multiplayer : '
     multiplayer = gets.chomp
-    puts 'last_played_date : '
+    puts 'last_played_date yyyy-mm-dd: '
     last_played_date = Date.parse(gets.chomp)
-    puts 'publish_date : '
+    puts 'publish_date yyyy-mm-dd: '
     publish_date = gets.chomp
     game = Game.new(multiplayer, last_played_date, publish_date)
     app.create_game(game)
