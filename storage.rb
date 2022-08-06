@@ -80,8 +80,9 @@ class Storage
     game_file = File.open('games.json', 'r')
     game_list = JSON.parse(game_file.read)
     p game_list
-    game_list.each {|game|
-      app.create_game(Game.new(game['multiplayer'], game['last_played_date'], game['publish_date']))}
+    game_list.each do |game|
+      app.create_game(Game.new(game['multiplayer'], game['last_played_date'], game['publish_date']))
+    end
     game_file.close
   end
 end

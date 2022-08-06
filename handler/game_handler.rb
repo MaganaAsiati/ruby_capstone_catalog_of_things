@@ -25,4 +25,3 @@ class GameHandler
     puts ''
   end
 end
-

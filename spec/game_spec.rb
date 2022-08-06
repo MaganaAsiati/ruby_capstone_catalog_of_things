@@ -13,8 +13,12 @@ describe Game do
     expect @last_played_date == '2010-06-29'
   end
 
-  it 'game should be an archived' do
+  it 'should return false' do
+    expect(@game.archived).to be(false)
+  end
+
+  it 'should return true' do
     @game.move_to_archive
-    expect(@game.can_be_archived?).to be true
+    expect(@game.archived).to be(true)
   end
 end

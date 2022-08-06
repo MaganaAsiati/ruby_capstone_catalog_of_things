@@ -58,10 +58,11 @@ class App
       puts "#{index}. [#{author.class}] - First Name: #{author.first_name}, Last Name: #{author.last_name}"
     end
   end
- # Genre part
- def add_genre(item)
-  @genres.add_item(item)
-end
+
+  # Genre part
+  def add_genre(item)
+    @genres.add_item(item)
+  end
 
   def list_genres
     @genres.each_with_index do |genre, index|
