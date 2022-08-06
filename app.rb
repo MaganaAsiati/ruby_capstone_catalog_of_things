@@ -26,29 +26,6 @@ class App
     genres.each { |genre| @genres.push(genre) }
   end
 
-  def add_genre(item)
-    @genre.add_item(item)
-  end
-
-  def add_author(item)
-    @author.add_item(item)
-  end
-
-  def add_game
-    print 'Enter number of players: '
-    multiplayer = gets.chomp
-
-    print 'Enter Last Played Date format[yyyy-mm-dd]: '
-    last_played_at = gets.chomp
-
-    print 'Enter Date Published format[yyyy-mm-dd]: '
-    publish_date = gets.chomp
-
-    games = [Game.new(multiplayer, last_played_at, publish_date)]
-
-    games.each { |game| @games.push(game) }
-  end
-
   def create_book(book)
     @books << book
   end
@@ -68,11 +45,8 @@ class App
     end
   end
 
-  def list_games
-    @games.each_with_index do |game, index|
-      puts "#{index}. [#{game.class}] - Multiplayer: #{game.multiplayer}, Last Played Date: #{game.last_played_at},
-      Publish Date: #{game.publish_date}"
-    end
+  def add_author(item)
+    @authors.add_item(item)
   end
 
   def list_authors

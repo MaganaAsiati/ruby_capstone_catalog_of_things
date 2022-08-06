@@ -1,8 +1,7 @@
-require './app'
-require './input'
-require './storage'
+require_relative './app'
+require_relative './input'
+require_relative './storage'
 require './options'
-
 def main
   app = App.new
   app.populate_app
