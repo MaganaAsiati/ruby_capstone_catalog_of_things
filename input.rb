@@ -28,7 +28,8 @@ class Input
       puts 'List of music albums'
       MusicHandler.list_music_albums(app)
     when 3
-      #  List of games
+      puts 'List all games'
+      app.list_games
     when 4
       #  List all genres
       puts 'List of genres'
@@ -37,13 +38,14 @@ class Input
       puts 'List all labels'
       app.list_labels
     when 6
-      #  List all authors
+      puts 'List all authors'
+      app.list_authors
     else
       puts 'invalid input'
     end
   end
 
-  def self.add_data(input, app)
+  def self.add_data(input, apps)
     case input
     when 7
       #  Add a book
@@ -52,7 +54,8 @@ class Input
       #  Add a music album
       MusicHandler.add_music_album(app)
     when 9
-      #  Add a game
+      puts 'Add Game'
+      apps.add_game
     else
       puts 'invalid input'
     end
