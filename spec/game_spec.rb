@@ -1,31 +1,20 @@
 require_relative '../model/game'
-require 'date'
 
 describe Game do
   before :each do
-    @game = Game.new(multiplayer: '50', last_played_at: '2022-08-04')
-  end
-  it 'is initialized' do
-    @game.should be_an_instance_of Game
-  end
-  it 'should initialize with multiplayer and last_played_date' do
-    expect(@game.multiplayer).not_to be_nil
-    expect(@game.last_played_at).to be_a(Date)
+    @game = Game.new('multiplayer', '2010-06-29', '2010-01-01')
   end
 
-  it 'should detect if the game multiplayer is same' do
-    expect(@game.multiplayer).to eq '50'
-  end
-  it 'last played date is 2022-08-04 ' do
-    expect @last_played_at == '2022-08-04'
+  it 'game should be an instance of game class' do
+    expect(@game).to be_an_instance_of Game
   end
 
-  it 'should return false' do
-    expect(@game.archived).to be(false)
+  it 'last played date is 2010-06-29' do
+    expect @last_played_date == '2010-06-29'
   end
 
-  it 'should return true' do
+  it 'game should be an archived' do
     @game.move_to_archive
-    expect(@game.archived).to be(false)
+    expect(@game.can_be_archived?).to be true
   end
 end
